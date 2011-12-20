@@ -3,4 +3,7 @@
 from tornado.web import RequestHandler
 
 class BaseHandler(RequestHandler):
-    pass
+    def render(self, *args, **kwargs):
+        if 'scripts' not in kwargs:
+            kwargs['scripts'] = ()
+        super(BaseHandler, self).render(*args, **kwargs)

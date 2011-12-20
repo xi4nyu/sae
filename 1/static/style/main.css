@@ -23,9 +23,18 @@ header .right{
 }
 .main{
     height:800px;
-    width:900px;
+    width:890px;
     margin:8px auto;
-    padding:5px 0px;
+    padding:5px;
     background-color:#eeeedd;
     border-radius:8px;
+}
+
+
+#blog_title{
+    width:600px;
+}
+#blog_content{
+    width:600px;
+    height:500px;
 }
