@@ -1,0 +1,31 @@
+*{
+    margin:0;
+}
+h1{
+    font-weight:24px;
+}
+body{
+    background: -webkit-gradient(linear, left top, left bottom, from(#777777), to(#aaaaaa));
+}
+header{
+    background-color:white;
+    height:60px;
+    width:900px;
+    margin:0 auto;
+    border-radius:8px;
+}
+header .left{
+    float:left;
+    line-height:60px;
+}
+header .right{
+    float:right;
+}
+.main{
+    height:800px;
+    width:900px;
+    margin:8px auto;
+    padding:5px 0px;
+    background-color:#eeeedd;
+    border-radius:8px;
+}
