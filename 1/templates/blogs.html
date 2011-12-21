@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% for blog in blogs %}
+<div class="blog_item">
+    <span>{{ blog.create_date }}</span>
+    <span class="title"><a href='/blog/{{blog.Id}}'>{{ blog.title }}</a></span>
+</div>
+{% end %}
+
+{% end %}

@@ -3,18 +3,17 @@
 from main import settings, urls
 from tornado.web import Application
 from tornado.ioloop import IOLoop
+from pprint import pprint
 
 
 def run():
-    print urls
+    pprint(sorted(urls))
     app = Application(urls, **settings)
     app.listen(8080)
     IOLoop.instance().start()
 
-from core.utility import app_path
 
 def main():
-    #print app_path('handler')
     run()
 
 if __name__ == "__main__":

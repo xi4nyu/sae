@@ -6,6 +6,11 @@ h1{
 }
 body{
     background: -webkit-gradient(linear, left top, left bottom, from(#777777), to(#aaaaaa));
+    font-size:14px;
+}
+a{
+    color:#2970A6;
+    text-decoration:none;
 }
 header{
     background-color:white;
@@ -23,18 +28,30 @@ header .right{
 }
 .main{
     height:800px;
-    width:890px;
+    width:880px;
     margin:8px auto;
-    padding:5px;
-    background-color:#eeeedd;
+    padding:10px;
+    background-color:white;
     border-radius:8px;
+    color:#555;
 }
 
 
-#blog_title{
+input#blog_title{
     width:600px;
 }
-#blog_content{
+textarea#blog_content{
     width:600px;
     height:500px;
+}
+
+.blog_item{
+    border-bottom:1px dashed black;
+    line-height:22px;
+}
+#error_text{
+    color:#FF3344;
+}
+.blog_title{
+    color:#2970a6;
 }

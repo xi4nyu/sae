@@ -15,12 +15,15 @@ def get_members(path, member_filter):
     modules = [getattr(__import__(".".join((path, file_name))), file_name) for file_name in get_files(path, file_filter)]
     return ((k, v) for module in modules for k, v in getmembers(module) if member_filter(k, v))
 
+
 def get_urls():
     member_filter = lambda k, v:isclass(v) and issubclass(v, BaseHandler) and hasurl(v)
     return [(geturl(v), v) for k, v in get_members('handler', member_filter)]
-        
+
+
 def app_path(dir_name):
     return abspath(path_join(dirname(__file__), '..', dir_name))
+
 
 def url(path):
     def wrap(cls):
@@ -28,8 +31,21 @@ def url(path):
         return cls
     return wrap
 
+
 def hasurl(cls):
     return hasattr(cls, '_url')
 
+
 def geturl(cls):
     return cls._url
+
+
+def authorized(check, fail_handler):
+    def wrap(handler):
+        def authorized_handler(self, *args, **kwargs):
+            if check(self, *args, **kwargs):
+                handler(self, *args, **kwargs)
+            else:
+                fail_handler(self, *args, **kwargs)
+        return authorized_handler
+    return wrap
