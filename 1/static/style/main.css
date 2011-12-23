@@ -55,3 +55,7 @@ textarea#blog_content{
 .blog_title{
     color:#2970a6;
 }
+
+.delete{
+    text-decoration:line-through;
+}

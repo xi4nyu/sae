@@ -4,5 +4,5 @@ import tornado.wsgi
 
 from main import urls, settings
 
-application = tornado.wsgi.WSGIApplication(urls, **settings)
-
+app = tornado.wsgi.WSGIApplication(urls)
+application = sae.create_wsgi_app(app)

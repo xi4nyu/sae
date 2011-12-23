@@ -33,6 +33,16 @@ CREATE_USER = """
 ADMIN_USER = """
     insert into user(user_name, password, is_admin) values('llq17501', 'e10adc3949ba59abbe56e057f20f883e', 1);
 """
+
+CREATE_TODO = """
+    CREATE TABLE IF NOT EXISTS todo
+    (
+        id int auto_increment not null,
+        text varchar(255) not null,
+        status int not null,
+        primary key(id)
+    )
+"""
 class DBHelper(object):
     def __init__(self):
         self.conn = connect(host = MYSQL_HOST, user = MYSQL_USER, passwd = MYSQL_PASS, port = MYSQL_PORT)

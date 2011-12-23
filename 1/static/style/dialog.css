@@ -1,0 +1,13 @@
+.overlay{
+    top:0%;
+    left:0%;
+    position:fixed;
+    height:100%;
+    width:100%;
+    background-color:rgba(160,160,160,0.8);
+    z-index:1010;
+}
+.overlay .center{
+    z-index:1011;
+    top:50%;
+}

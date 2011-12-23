@@ -4,6 +4,9 @@
         <title>刘立秋的网站</title>
         <mete name="keywords" content="刘立秋, program, python" />
         <link rel="stylesheet" type="text/css" href="/static/style/main.css" />
+        {% for style in styles %}
+        <link rel="stylesheet" type="text/css" href="/static/style/{{ style }}.css" />
+        {% end %}
         <script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
         {% for script in scripts %}
         <script type="text/javascript" src="/static/js/{{ script }}.js"></script>
@@ -12,7 +15,7 @@
     <body>
         <header>
             <h1 class="left">Crazy</h1>
-            <img src="http://projecteuler.net/profile/llq17501.png" class="right"/>
+            <!--           <img src="http://projecteuler.net/profile/llq17501.png" class="right"/> -->
         </header>
         <div class="main">
             {% block main %}

@@ -32,7 +32,7 @@ class PublishBlogHandler(BaseHandler):
         self.write(str(result))
 
 
-@url(r"/blog/?")
+@url(r"/?")
 class BlogsHandler(BaseHandler):
     def get(self):
         count, blogs = get_all_blogs()
