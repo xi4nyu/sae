@@ -4,6 +4,8 @@ from core.utility import url
 from core.base_handler import BaseHandler
 
 from logic.todo import get_todo_list, add_todo, del_todo, modify_todo
+from json import dumps
+
 
 
 NAME = "todo"
@@ -16,7 +18,8 @@ class TodoHandler(BaseHandler):
 class GetTodoHandler(BaseHandler):
     def get(self):
         ls = get_todo_list()
-        self.write({"result":ls})
+        re = dumps({"result":ls})
+        self.write(re)
 
 
 @url("(?i)/todo/add/?")

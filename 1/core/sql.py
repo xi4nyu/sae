@@ -53,6 +53,7 @@ class DBHelper(object):
         cursor = self.conn.cursor()
         cursor.execute(CREATE_BLOG)
         cursor.execute(CREATE_USER)
+        cursor.execute(CREATE_TODO)
 
     def find(self, sql):
         cursor = self.conn.cursor()

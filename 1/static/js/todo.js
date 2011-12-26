@@ -63,6 +63,8 @@ $(function(){
     var select_id=get_select_id();
     var id_num;
     function list_to_html(data){
+        data = $.parseJSON(data)
+        console.log(data, data.result.length);
         $("#todo_list .todo,#todo_list .done").empty();
         id_num=0;
         for(var i=0;i<data.result.length;i++){
