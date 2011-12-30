@@ -1,0 +1,18 @@
+.normal{
+    color:black;
+}
+.comment{
+    color:#8F5902;
+}
+.keyword{
+    color:#008;
+}
+.string{
+    color:#080;
+}
+.operator{
+    color:#660;
+}
+.number{
+    color:#066;
+}

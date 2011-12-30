@@ -5,6 +5,25 @@ from fnmatch import fnmatch
 from inspect import getmembers, isclass
 from core.base_handler import BaseHandler
 
+class FileLike:
+    def __init__(self, content, split = '\n'):
+        self.content = content
+        self.index = 0
+        self.split = split
+    def __next__(self):
+        if self.index == len(self.content):
+            raise StopIteration
+        old_index = self.index
+        new_line = self.content.find(self.split, old_index)
+        if new_line > 0:
+            self.index = new_line + len(self.split)
+        else:
+            self.index = len(self.content)
+        return self.content[old_index:self.index]
+    
+    def readline(self):
+        return self.__next__()
+
 
 def get_files(path, file_filter):
     return (splitext(n)[0] for n in listdir(path) if file_filter(n))

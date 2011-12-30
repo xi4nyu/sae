@@ -27,7 +27,7 @@ header .right{
     float:right;
 }
 .main{
-    height:800px;
+    min-height:800px;
     width:880px;
     margin:8px auto;
     padding:10px;
