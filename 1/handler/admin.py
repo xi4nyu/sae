@@ -22,9 +22,19 @@ class LoginHandler(BaseHandler):
         if check_user(user_name, password):
             self.set_secure_cookie('user_name', user_name)
             back_uri = self.get_argument('back', '/')
-            self.write(Result(True, back = back_uri).to_json())
+            self.json(Result(True, back = back_uri))
         else:
-            self.write(Result(False).to_json())
+            self.json(Result(False))
+
+
+@url(r"/admin/register")
+class Register(BaseHandler):
+    def get(self):
+        self.render("register.html", scripts = ())
+
+    def post(self):
+        user_name = self.get_argument("user_name")
+        password = self.get_argument("password")
 
 
 

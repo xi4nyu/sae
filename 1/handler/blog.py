@@ -37,3 +37,4 @@ class BlogsHandler(BaseHandler):
     def get(self):
         count, blogs = get_all_blogs()
         self.render("blogs.html", blogs = blogs)
+

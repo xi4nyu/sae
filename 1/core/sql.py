@@ -45,15 +45,16 @@ CREATE_TODO = """
 """
 class DBHelper(object):
     def __init__(self):
-        self.conn = connect(host = MYSQL_HOST, user = MYSQL_USER, passwd = MYSQL_PASS, port = MYSQL_PORT)
+        #self.conn = connect(host = MYSQL_HOST, user = MYSQL_USER, passwd = MYSQL_PASS, port = MYSQL_PORT)
+        self.conn = connect(user = MYSQL_USER, passwd = MYSQL_PASS)
         self.conn.select_db(MYSQL_DB)
         self._init()
 
     def _init(self):
         cursor = self.conn.cursor()
-        cursor.execute(CREATE_BLOG)
-        cursor.execute(CREATE_USER)
-        cursor.execute(CREATE_TODO)
+        #cursor.execute(CREATE_BLOG)
+        #cursor.execute(CREATE_USER)
+        #cursor.execute(CREATE_TODO)
 
     def find(self, sql):
         cursor = self.conn.cursor()
@@ -61,9 +62,9 @@ class DBHelper(object):
         result = cursor.fetchall()
         return count, result
 
-    def find_one(self, sql, *value):
+    def find_one(self, sql, value):
         cursor = self.conn.cursor()
-        count = cursor.execute(sql, *value)
+        count = cursor.execute(sql, value)
         if count:
             result = cursor.fetchone()
             return result
@@ -72,6 +73,7 @@ class DBHelper(object):
         cursor = self.conn.cursor()
         sql = "INSERT INTO {table_name}({column_names}) values({values})".format(table_name = table_name, column_names = ",".join(column_names), values = ",".join(["%s" for i in column_names]))
         n = cursor.executemany(sql, values)
+        self.conn.commit()
         return n
 
 

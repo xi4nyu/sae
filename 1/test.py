@@ -5,6 +5,7 @@ from tornado.web import Application
 from tornado.ioloop import IOLoop
 from tornado.wsgi import WSGIApplication
 from wsgiref import simple_server
+from setting import HTTP_PORT
 
 from werkzeug.serving import run_simple
 
@@ -14,7 +15,7 @@ from pprint import pprint
 def run():
     pprint(sorted(urls))
     app = Application(urls, **settings)
-    app.listen(8080)
+    app.listen(HTTP_PORT)
     IOLoop.instance().start()
 
 def run_wsgi():

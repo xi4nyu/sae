@@ -27,6 +27,11 @@ def check_user(user_name, password):
     return result and result[0] == md5(password).hexdigest()
 
 
+def create_user(user_name, password, is_admin):
+    db = DBHelper()
+    value = (user_name, md5(password).hexdigest(), is_admin)
+    return db.insert("user", ("user_name", "password", "is_admin"), (value,))
+
 
 def _check_handler(request_handler):
     user_name = request_handler.get_secure_cookie("user_name")
